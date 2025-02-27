@@ -1,8 +1,27 @@
+/*creation of database*/
+CREATE DATABASE retail_sales_p1;
+use retail_sales_p1;
+/* creation of table*/
+CREATE TABLE retail_sales(
+     transaction_id INT PRIMARY KEY,	
+                sale_date DATE,	 
+                sale_time TIME,	
+                customer_id	INT,
+                gender	VARCHAR(15),
+                age	INT,
+                category VARCHAR(15),	
+                quantity	INT,
+                price_per_unit FLOAT,	
+                cogs	FLOAT,
+                total_sale FLOAT
+            );
+ 
+
 SELECT * FROM retail_sales_p1.retail_sales;
 select * from retail_sales;
 SELECT COUNT(*) FROM retail_sales;
 SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
-
+/* here we identify which column values are null */
 
 SELECT * FROM retail_sales
 WHERE 
@@ -16,7 +35,7 @@ WHERE
     OR price_per_unit IS NULL 
     OR cogs IS NULL;
     
-    
+/* delete the row where the data is null*/    
 DELETE FROM retail_sales
 WHERE 
     sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
